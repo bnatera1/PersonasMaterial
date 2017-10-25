@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">PersonasMaterial</string>
     <string name="action_settings">Settings</string>
+    <string name="agregarPersonas">AGREGAR</string>
+    <string name="guardar">GUARDAR</string>
+    <string name="limpiar">LIMPIAR</string>
+    <string name="cedula">Cedula</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="mensaje_error_vacio">Digite la informacion faltante</string>
+    <string name="mensaje_persona_guardada">Persona Guardada Exitosamente!</string>
+
+
 </resources>

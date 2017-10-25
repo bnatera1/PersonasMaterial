@@ -1,5 +1,8 @@
 package com.example.android.personasmaterial;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 
 /**
@@ -7,10 +10,15 @@ import java.util.ArrayList;
  */
 
 public class Datos {
+
+    private static DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+
+    private  static String bd = "Personas";
     private static ArrayList<Persona> personas = new ArrayList<>();
 
     public static void guardarPersona(Persona p){
-        personas.add(p);
+        p.setId(databaseReference.push().getKey());
+       databaseReference.child(bd).child(p.getId()).setValue(p);
     }
 
     public static ArrayList<Persona> obtenerPersonas(){

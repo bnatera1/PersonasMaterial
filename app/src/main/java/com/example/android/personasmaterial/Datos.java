@@ -17,11 +17,22 @@ public class Datos {
     private static ArrayList<Persona> personas = new ArrayList<>();
 
     public static void guardarPersona(Persona p){
-        p.setId(databaseReference.push().getKey());
+
        databaseReference.child(bd).child(p.getId()).setValue(p);
     }
 
     public static ArrayList<Persona> obtenerPersonas(){
         return personas;
     }
+
+
+    public static void setPersonas(ArrayList<Persona> per){
+        personas=per;
+    }
+
+    public static String getId(){
+        return databaseReference.push().getKey();
+    }
+
+
 }

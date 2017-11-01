@@ -9,6 +9,7 @@
     <string name="apellido">Apellido</string>
     <string name="mensaje_error_vacio">Digite la informacion faltante</string>
     <string name="mensaje_persona_guardada">Persona Guardada Exitosamente!</string>
+    <string name="mensaje_Seleccion_imagen">seleccione la imagen</string>
 
 
 </resources>

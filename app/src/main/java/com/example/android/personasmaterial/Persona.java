@@ -41,6 +41,9 @@ public class Persona {
         this.apellido = apellido;
 
     }
+    public Persona(String id){
+        this.id = id;
+    }
 
     public String getId() {
         return id;
@@ -93,5 +96,9 @@ public class Persona {
     public void guardar(){
         Datos.guardarPersona(this);
     }
+
+    public void modificar(){Datos.actualizar(this);}
+
+    public void eliminar (){Datos.eliminar(this);}
 
 }

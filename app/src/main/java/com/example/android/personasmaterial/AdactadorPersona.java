@@ -29,11 +29,13 @@ public class AdactadorPersona extends RecyclerView.Adapter<AdactadorPersona.Pers
     private ArrayList<Persona> personas;
     private Resources res;
     private Context context;
+    private OnPersonaClickListener clickListener;
 
-    public AdactadorPersona(Context contexto, ArrayList<Persona>personas){
+    public AdactadorPersona(Context contexto, ArrayList<Persona>personas, OnPersonaClickListener clickListener){
         this.personas = personas;
         this.res = contexto.getResources();
         this.context = contexto;
+        this.clickListener = clickListener;
     }
 
     @Override
@@ -45,7 +47,7 @@ public class AdactadorPersona extends RecyclerView.Adapter<AdactadorPersona.Pers
     @Override
     public void onBindViewHolder(final PersonaViewHolder holder, int position) {
         final Persona p = personas.get(position);
-       /* holder.foto.setImageDrawable(ResourcesCompat.getDrawable(res,p.getFoto(),null));*/
+
 
         StorageReference storageReference = FirebaseStorage.getInstance().getReference();
         storageReference.child(p.getFoto()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -57,6 +59,13 @@ public class AdactadorPersona extends RecyclerView.Adapter<AdactadorPersona.Pers
         holder.cedula.setText(p.getCedula());
         holder.nombre.setText(p.getNombre());
         holder.apellido.setText(p.getApellido());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickListener.onPersonaClick(p);
+            }
+        });
     }
 
     @Override
@@ -70,13 +79,19 @@ public class AdactadorPersona extends RecyclerView.Adapter<AdactadorPersona.Pers
         private TextView nombre;
         private TextView apellido;
 
+
         public PersonaViewHolder(View item){
             super(item);
+
             foto = (ImageView)item.findViewById(R.id.imgFoto);
             cedula = (TextView) item.findViewById(R.id.lblCedula);
             nombre = (TextView) item.findViewById(R.id.lblNombre);
             apellido = (TextView) item.findViewById(R.id.lblApellido);
         }
+    }
+
+    public interface OnPersonaClickListener{
+        void onPersonaClick(Persona p);
     }
 
 }

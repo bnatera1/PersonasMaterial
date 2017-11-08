@@ -10,6 +10,14 @@
     <string name="mensaje_error_vacio">Digite la informacion faltante</string>
     <string name="mensaje_persona_guardada">Persona Guardada Exitosamente!</string>
     <string name="mensaje_Seleccion_imagen">seleccione la imagen</string>
+    <string name="modificar">Modificar</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="modificarPersona">MODIFICAR</string>
+    <string name="mensaje_error_cedula_existente">Cedula Existente</string>
+    <string name="mensaje_persona_modificada_exitosamente">Persona Modificada</string>
+    <string name="mensaje_ventana_eliminar">Desea eliminar Esta persona</string>
+    <string name="opcion_positivo">Si</string>
+    <string name="opcion_negativo">No</string>
 
 
 </resources>

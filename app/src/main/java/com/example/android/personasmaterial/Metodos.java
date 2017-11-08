@@ -25,4 +25,11 @@ public class Metodos {
         }
         return false;
     }
+
+    public static boolean existencia_persona(ArrayList<Persona> personas, String cedula){
+        for (int i = 0; i< personas.size(); i++){
+            if (personas.get(i).getCedula().equals(cedula))return true;
+        }
+        return false;
+    }
 }
